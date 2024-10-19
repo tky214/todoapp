@@ -1,0 +1,74 @@
+{% extends 'todoapp/base.html' %} {% block content %}
+
+<div class="header">
+    <h1>{{request.user}}のタスク</h1>
+</div>
+
+<div class="searchWrapper">
+    <form action="" method="get">
+        <input type="text" name="search" value="{{search}}" class="searchInput">
+        <input type="submit" value="検索" class="searchButton">
+    </form>
+<a href="{% url 'create-task' %}" class="addButton">＋</a>
+
+</div>
+<!-- <table>
+    <tr>
+        <th>タスク</th>
+    </tr>
+    {% for task in tasks %}  {% comment %}
+                                object_list入力したタスクを全て取得することができる
+                                vies.pyでobject_listを分かりやすい名前に変更可
+                                波カッコでforやif、whileなどを使うことができる
+                                必ずend~~が必要
+                            {% endcomment %}
+    <tr>
+        <td>{{task.title}}</td>  {% comment %}タスクのtitleを取得して表示 ちなみに値を取得する場合は{{}}で囲う必要がある{% endcomment %}
+                            <td><a href="{% url 'task' task.id %}">確認</a></td> {% comment %} urls.pyでname指定している{% endcomment %}
+                            <td><a href="{% url 'edit-task' task.id %}">編集</a></td>
+                            <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
+    </tr>
+    {% endfor %}
+</table> -->
+<div class="tasksWrapper">
+    {% for task in tasks %}
+    <!-- タスクが完了している場合 -->
+    <div class="taskWrapper">
+        {% if task.completed %}
+        <div class="taskTitle">
+            <div class="taskCompletedIcon"></div>
+            <s><a href="{% url 'task' task.id %}">{{task}}</a></s>
+        </div>
+        <div>
+            <a href="{% url 'edit-task' task.id %}" class="editButton"> 🖉</a>
+            <a href="{% url 'delete-task' task.id %}" class="deleteButton"> x</a>
+        </div>
+        
+    {% else %}
+        <div class="taskTitle">
+            <div class="taskinCompletedIcon"></div>
+            <a href="{% url 'task' task.id %}">{{task}}</a>
+        </div>
+        <div>
+            <a href="{% url 'edit-task' task.id %}" class="editButton"> 🖉</a>
+            <a href="{% url 'delete-task' task.id %}" class="deleteButton"> x</a>
+        </div>
+            {% endif %}
+    </div>
+     {% empty %} <!-- タスクがからの場合-->
+    <h2 style="padding-left: 20px;">タスクがありません</h2>
+    {% endfor%}
+</div>
+
+<div class="loginAndLogout">
+    {% if request.user.is_authenticated %}
+    <!-- <p>{{ request.user }} </p> -->
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">ログアウト</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">ログイン</a>
+    {% endif %}
+</div>
+{% endblock content %}

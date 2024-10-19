@@ -1,0 +1,126 @@
+body {
+    background-color: aliceblue ;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    margin-top: 55px;
+}
+.todoAppWrapper {
+    max-width: 530px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: -4px 6px 40px -15px rgba(0,0,0,0.67);
+}
+
+a {
+    color: #595959;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background: rgb(34,237,159);
+    background: linear-gradient(90deg, rgba(34,237,159,1) 9%, rgba(31,184,219,1) 55%, rgba(7,191,228,1) 100%, rgba(105,99,208,1) 100%
+    );
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+
+.taskWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid #595959a9;
+}
+
+.taskTitle {
+    display: flex;
+    align-items: center;
+}
+
+.taskCompletedIcon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 255, 4);
+    border-radius:  50%;
+    margin-right: 10px;
+}
+
+.taskinCompletedIcon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(10, 1, 7);
+    border-radius:  50%;
+    margin-right: 10px;
+}
+
+.loginAndLogout {
+    padding: 20px;
+}
+
+.loginAndLogout a {
+    color: lightcoral;
+}
+
+.editButton {
+    color: brown;
+}
+
+.deleteButton {
+    color: red;
+}
+/* タスク検索と追加のフォーム */
+.searchWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    
+}
+
+.searchInput {
+    height: 24px;
+    outline: none;
+    border: 1px solid lightseagreen;
+    border-radius: 5px;
+    padding: 2px 4px;
+    width: 160px !important;
+}
+
+.searchButton {
+    border: 1px solid lightseagreen;
+    padding: 4px 10px;
+    background-color: #fafafa;
+    color: lightgreen;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.4s;
+}
+
+.searchButton:hover {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.addButton {
+    font-size: 32px;
+    color: lightseagreen;
+}
+
+label {
+    display: block;
+
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+}
+
+.accountcreate {
+    padding: 10px 20px 20px 20px;
+}

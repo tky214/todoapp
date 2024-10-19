@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 外部ファイルの読み込み -->
+    {% load static %} 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoアプリ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/base.css'%}">
+</head>
+
+<body>
+    <div class="todoAppWrapper">{% block content %} {% endblock content %}</div>
+    <!-- スタイルの継承を行っている -->
+</body>
+</html>
